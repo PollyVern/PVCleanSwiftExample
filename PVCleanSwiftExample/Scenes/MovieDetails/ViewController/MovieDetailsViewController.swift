@@ -46,8 +46,8 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        detailsInteractor?.loadMovieDetails(movieID: movieID)
-        creditsInteractor?.loadMovieCredits(movieID: movieID)
+        detailsInteractor?.loadMovieDetails(movieID: movieIDSetup())
+        creditsInteractor?.loadMovieCredits(movieID: movieIDSetup())
         configureDetailView()
         tapGestureDismiss()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
@@ -63,6 +63,13 @@ class MovieDetailsViewController: UIViewController {
         presenter.viewController = viewController
         viewController.detailsInteractor = interactor
         viewController.creditsInteractor = interactor
+    }
+    
+    private func movieIDSetup() -> MovieDetailsRequest {
+        var movieDetailsRequest = [MovieDetailsRequest]()
+        movieDetailsRequest.removeAll()
+        movieDetailsRequest.append(MovieDetailsRequest(movieId: movieID))
+        return movieDetailsRequest[0]
     }
     
     private func configureDetailView() {

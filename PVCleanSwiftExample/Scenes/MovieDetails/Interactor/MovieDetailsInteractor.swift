@@ -9,11 +9,11 @@ import Foundation
 
 
 protocol DetailsBusinessLogic {
-    func loadMovieDetails(movieID: Int)
+    func loadMovieDetails(movieID: MovieDetailsRequest)
 }
 
 protocol CreditsBusinessLogic {
-    func loadMovieCredits(movieID: Int)
+    func loadMovieCredits(movieID: MovieDetailsRequest)
 }
 
 class MovieDetailsInteractor {
@@ -25,16 +25,16 @@ class MovieDetailsInteractor {
 }
 
 extension MovieDetailsInteractor: DetailsBusinessLogic {
-    func loadMovieDetails(movieID: Int) {
-        loadMovieDetailsWorker.loadMovieDetails(movieID: movieID) { movieDetailsListResponse in
+    func loadMovieDetails(movieID: MovieDetailsRequest) {
+        loadMovieDetailsWorker.loadMovieDetails(movieID: movieID.movieId!) { movieDetailsListResponse in
             self.detailsPresenter?.presentData(data: movieDetailsListResponse)
         }
     }
 }
 
 extension MovieDetailsInteractor: CreditsBusinessLogic {
-    func loadMovieCredits(movieID: Int) {
-        loadMovieCreditsWorker.loadMovieCredits(movieID: movieID) { movieCreditsListResponse in
+    func loadMovieCredits(movieID: MovieDetailsRequest) {
+        loadMovieCreditsWorker.loadMovieCredits(movieID: movieID.movieId!) { movieCreditsListResponse in
             self.creditsPresenter?.presentData(data: movieCreditsListResponse)
         }
     }
