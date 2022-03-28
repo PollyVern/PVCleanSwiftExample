@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		366307B227F2261300F9FC7A /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366307B127F2261300F9FC7A /* ProfileInteractor.swift */; };
+		366307B527F226A700F9FC7A /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366307B427F226A700F9FC7A /* ProfilePresenter.swift */; };
+		366307BD27F228F800F9FC7A /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366307BC27F228F800F9FC7A /* ProfileRequest.swift */; };
+		366307BF27F22A4300F9FC7A /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366307BE27F22A4300F9FC7A /* ProfileResponse.swift */; };
 		36BB42C627EE3F45004DD5C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB42C527EE3F45004DD5C8 /* AppDelegate.swift */; };
 		36BB42C827EE3F45004DD5C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB42C727EE3F45004DD5C8 /* SceneDelegate.swift */; };
 		36BB42CF27EE3F45004DD5C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36BB42CE27EE3F45004DD5C8 /* Assets.xcassets */; };
@@ -44,6 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		366307B127F2261300F9FC7A /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		366307B427F226A700F9FC7A /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		366307BC27F228F800F9FC7A /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
+		366307BE27F22A4300F9FC7A /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		36BB42C227EE3F44004DD5C8 /* PVCleanSwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PVCleanSwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36BB42C527EE3F45004DD5C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36BB42C727EE3F45004DD5C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +101,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		366307B027F225E000F9FC7A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				366307B127F2261300F9FC7A /* ProfileInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		366307B327F2268A00F9FC7A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				366307B427F226A700F9FC7A /* ProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		366307B627F2282D00F9FC7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				366307B727F2284000F9FC7A /* Request */,
+				366307B827F2288300F9FC7A /* Response */,
+				366307BB27F228AA00F9FC7A /* ViewModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		366307B727F2284000F9FC7A /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				366307BC27F228F800F9FC7A /* ProfileRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		366307B827F2288300F9FC7A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				366307BE27F22A4300F9FC7A /* ProfileResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		366307BB27F228AA00F9FC7A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36BB432D27EE441E004DD5C8 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		36BB42B927EE3F44004DD5C8 = {
 			isa = PBXGroup;
 			children = (
@@ -359,8 +417,11 @@
 		36BB432727EE43D1004DD5C8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				36BB432F27EE4448004DD5C8 /* ViewController */,
 				36BB432827EE43D9004DD5C8 /* View */,
+				36BB432F27EE4448004DD5C8 /* ViewController */,
+				366307B027F225E000F9FC7A /* Interactor */,
+				366307B327F2268A00F9FC7A /* Presenter */,
+				366307B627F2282D00F9FC7A /* Model */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -385,7 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				36BB432B27EE43F4004DD5C8 /* ProfileView.swift */,
-				36BB432D27EE441E004DD5C8 /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -479,6 +539,8 @@
 				36BB42F527EE41CB004DD5C8 /* MoviesDefaultListRequest.swift in Sources */,
 				36BB42F227EE41A6004DD5C8 /* MovieCreditsListResponse.swift in Sources */,
 				36BB431E27EE435D004DD5C8 /* MovieDetailsViewModel.swift in Sources */,
+				366307B527F226A700F9FC7A /* ProfilePresenter.swift in Sources */,
+				366307B227F2261300F9FC7A /* ProfileInteractor.swift in Sources */,
 				36BB42EC27EE4147004DD5C8 /* MoviesListResponse.swift in Sources */,
 				36BB42FB27EE41FE004DD5C8 /* NavigationTitleConstants.swift in Sources */,
 				36BB432E27EE441E004DD5C8 /* ProfileViewModel.swift in Sources */,
@@ -487,6 +549,7 @@
 				36BB42E027EE3FB7004DD5C8 /* UIColor.swift in Sources */,
 				36BB430127EE423A004DD5C8 /* URL.swift in Sources */,
 				36BB431C27EE434C004DD5C8 /* MovieDetaislView.swift in Sources */,
+				366307BF27F22A4300F9FC7A /* ProfileResponse.swift in Sources */,
 				36BB42C627EE3F45004DD5C8 /* AppDelegate.swift in Sources */,
 				36BB430427EE425A004DD5C8 /* Formatters.swift in Sources */,
 				36BB430A27EE4293004DD5C8 /* CollectionViewLayout.swift in Sources */,
@@ -495,6 +558,7 @@
 				36BB432C27EE43F4004DD5C8 /* ProfileView.swift in Sources */,
 				36BB42E427EE3FD1004DD5C8 /* UIView.swift in Sources */,
 				36BB42C827EE3F45004DD5C8 /* SceneDelegate.swift in Sources */,
+				366307BD27F228F800F9FC7A /* ProfileRequest.swift in Sources */,
 				36BB433127EE4452004DD5C8 /* ContainerViewController.swift in Sources */,
 				36BB431327EE42EC004DD5C8 /* MoviesViewController.swift in Sources */,
 				36BB432327EE439A004DD5C8 /* MovieDetailsViewController.swift in Sources */,
