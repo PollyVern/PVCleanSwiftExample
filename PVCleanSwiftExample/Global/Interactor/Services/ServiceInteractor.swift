@@ -21,8 +21,8 @@ protocol CreditsBusinessLogic {
 
 public class ServiceInteractor: NSObject {
     var presenter: MoviesPresentationLogic?
-    var details_presenter: MovieDetailsPresentationLogic?
-    var credits_presenter: MovieCreditsPresentationLogic?
+    var detailsPresenter: MovieDetailsPresentationLogic?
+    var creditsPresenter: MovieCreditsPresentationLogic?
 }
 
 extension ServiceInteractor: BusinessLogic, XMLParserDelegate {
@@ -81,7 +81,7 @@ extension ServiceInteractor: DetailsBusinessLogic {
                                                                 overview: moviesDescriptionResult.overview,
                                                                 voteAverage: moviesDescriptionResult.voteAverage))
                 DispatchQueue.main.async {
-                    self.details_presenter?.presentData(data: backendResponse)
+                    self.detailsPresenter?.presentData(data: backendResponse)
                 }
                 
             } catch {
@@ -108,7 +108,7 @@ extension ServiceInteractor: CreditsBusinessLogic {
                 backendResponse.append(MovieCreditsListResponse(cast: movieCreditsResult.cast,
                                                                 crew: movieCreditsResult.crew))
                 DispatchQueue.main.async {
-                    self.credits_presenter?.presentData(data: backendResponse)
+                    self.creditsPresenter?.presentData(data: backendResponse)
                 }
                 
             } catch {
