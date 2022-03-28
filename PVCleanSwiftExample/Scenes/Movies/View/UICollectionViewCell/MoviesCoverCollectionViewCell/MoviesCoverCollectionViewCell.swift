@@ -16,25 +16,25 @@ protocol Movies {
 class MoviesCoverCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Property
-    let windowFrameHeight = UIWindow().frame.height
-    let subTitleFont = UIFont.systemFont(ofSize: 17)
-    let titleFont = UIFont.systemFont(ofSize: 20)
+    private let windowFrameHeight = UIWindow().frame.height
+    private let subTitleFont = UIFont.systemFont(ofSize: 17)
+    private let titleFont = UIFont.systemFont(ofSize: 20)
     
-    lazy var coverImageView: UIImageView = {
+    private lazy var coverImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleToFill
         imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
     }()
     
-    lazy var backgroundOpacityView: UIView = {
+    private lazy var backgroundOpacityView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .darkGray.withAlphaComponent(0.9)
         return view
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 4
@@ -43,7 +43,7 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -52,7 +52,7 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    lazy var genresLabel: UILabel = {
+    private lazy var genresLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -61,7 +61,7 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var dateLabel: UILabel = {
+    private lazy var dateLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -70,7 +70,7 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    lazy var nameStackView: UIStackView = {
+    private lazy var nameStackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 0
@@ -79,7 +79,7 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
-    lazy var durationLabel: UILabel = {
+    private lazy var durationLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -88,7 +88,7 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var voteAverageLabel: UILabel = {
+    private lazy var voteAverageLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1

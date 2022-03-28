@@ -359,6 +359,7 @@
 		36BB432727EE43D1004DD5C8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				36BB432F27EE4448004DD5C8 /* ViewController */,
 				36BB432827EE43D9004DD5C8 /* View */,
 			);
 			path = Profile;
@@ -367,7 +368,6 @@
 		36BB432827EE43D9004DD5C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				36BB432F27EE4448004DD5C8 /* ViewController */,
 				36BB432927EE43E3004DD5C8 /* UIView */,
 			);
 			path = View;

@@ -10,22 +10,22 @@ import UIKit
 class MovieDetailsView: UIView {
     
     //MARK: - Internal var
-    let windowFrameHeight = UIWindow().frame.height
-    let windowFrameWidth = UIWindow().frame.width
-    let starFillImage = UIImage(systemName: "star.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor.orange)
-    let starImage = UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor.orange)
-    let subTitleFont = UIFont.systemFont(ofSize: 17)
-    let titleFont = UIFont.systemFont(ofSize: 20)
+    private let windowFrameHeight = UIWindow().frame.height
+    private let windowFrameWidth = UIWindow().frame.width
+    private let starFillImage = UIImage(systemName: "star.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor.orange)
+    private let starImage = UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor.orange)
+    private let subTitleFont = UIFont.systemFont(ofSize: 17)
+    private let titleFont = UIFont.systemFont(ofSize: 20)
     
     //MARK: - Internal UI var
-    lazy var containerView: UIView = {
+    private lazy var containerView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(ColorConstants.backgroundColor)
         return view
     }()
     
-    lazy var durationLabel: UILabel = {
+    private lazy var durationLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -35,7 +35,7 @@ class MovieDetailsView: UIView {
         return label
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -45,14 +45,14 @@ class MovieDetailsView: UIView {
         return label
     }()
     
-    lazy var coverImageView: UIImageView = {
+    private lazy var coverImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
         imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 4
@@ -61,7 +61,7 @@ class MovieDetailsView: UIView {
         return stackView
     }()
     
-    lazy var textStackView: UIStackView = {
+    private lazy var textStackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 4
@@ -70,7 +70,7 @@ class MovieDetailsView: UIView {
         return stackView
     }()
     
-    lazy var textGenresLabel: UILabel = {
+    private lazy var textGenresLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -81,7 +81,7 @@ class MovieDetailsView: UIView {
         return label
     }()
     
-    lazy var textDirectorsLabel: UILabel = {
+    private lazy var textDirectorsLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
@@ -92,7 +92,7 @@ class MovieDetailsView: UIView {
         return label
     }()
     
-    lazy var textStarsLabel: UILabel = {
+    private lazy var textStarsLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
@@ -103,7 +103,7 @@ class MovieDetailsView: UIView {
         return label
     }()
     
-    lazy var genresLabel: UILabel = {
+    private lazy var genresLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -112,7 +112,7 @@ class MovieDetailsView: UIView {
         return label
     }()
     
-    lazy var directorsLabel: UILabel = {
+    private lazy var directorsLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -121,7 +121,7 @@ class MovieDetailsView: UIView {
         return label
     }()
     
-    lazy var starsLabel: UILabel = {
+    private lazy var starsLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -130,7 +130,7 @@ class MovieDetailsView: UIView {
         return label
     }()
     
-    lazy var textView: UITextView = {
+    private lazy var textView: UITextView = {
         var textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textColor = UIColor(ColorConstants.textColor)
@@ -140,7 +140,7 @@ class MovieDetailsView: UIView {
         return textView
     }()
     
-    lazy var starsStackView: UIStackView = {
+    private lazy var starsStackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 0
@@ -149,7 +149,7 @@ class MovieDetailsView: UIView {
         return stackView
     }()
     
-    lazy var star1ImageView: UIImageView = {
+    private lazy var star1ImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.image = starImage
@@ -157,7 +157,7 @@ class MovieDetailsView: UIView {
         return imgView
     }()
     
-    lazy var star2ImageView: UIImageView = {
+    private lazy var star2ImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.image = starImage
@@ -165,7 +165,7 @@ class MovieDetailsView: UIView {
         return imgView
     }()
     
-    lazy var star3ImageView: UIImageView = {
+    private lazy var star3ImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.image = starImage
@@ -173,7 +173,7 @@ class MovieDetailsView: UIView {
         return imgView
     }()
     
-    lazy var star4ImageView: UIImageView = {
+    private lazy var star4ImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.image = starImage
@@ -181,7 +181,7 @@ class MovieDetailsView: UIView {
         return imgView
     }()
     
-    lazy var star5ImageView: UIImageView = {
+    private lazy var star5ImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.image = starImage
