@@ -22,8 +22,8 @@ class MovieDetailsViewController: UIViewController {
     var movieID = Int()
     
     //MARK: - External vars
-//    private var detailsInteractor: DetailsBusinessLogic?
-//    private var creditsInteractor: CreditsBusinessLogic?
+    private var detailsInteractor: DetailsBusinessLogic?
+    private var creditsInteractor: CreditsBusinessLogic?
     
     //MARK: - Internal UI vars
     lazy var movieDetailsView: MovieDetailsView = {
@@ -46,8 +46,8 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-//        detailsInteractor?.loadMovieDetails(movieID: movieID)
-//        creditsInteractor?.loadMovieCredits(movieID: movieID)
+        detailsInteractor?.loadMovieDetails(movieID: movieID)
+        creditsInteractor?.loadMovieCredits(movieID: movieID)
         configureDetailView()
         tapGestureDismiss()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
@@ -57,12 +57,12 @@ class MovieDetailsViewController: UIViewController {
     private func setup() {
         let viewController = self
         let presenter = MovieDetailsPresenter()
-//        let interactor = ServiceWorker()
-//        interactor.detailsPresenter = presenter
-//        interactor.creditsPresenter = presenter
+        let interactor = MovieDetailsInteractor()
+        interactor.detailsPresenter = presenter
+        interactor.creditsPresenter = presenter
         presenter.viewController = viewController
-//        viewController.detailsInteractor = interactor
-//        viewController.creditsInteractor = interactor
+        viewController.detailsInteractor = interactor
+        viewController.creditsInteractor = interactor
     }
     
     private func configureDetailView() {
