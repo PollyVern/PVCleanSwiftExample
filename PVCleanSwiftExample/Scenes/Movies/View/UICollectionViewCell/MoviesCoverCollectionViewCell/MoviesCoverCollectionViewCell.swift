@@ -7,15 +7,14 @@
 
 import UIKit
 
-//MARK: - Protocol
-
+// MARK: - Protocol
 protocol Movies {
     func presentGenresData()
 }
 
 class MoviesCoverCollectionViewCell: UICollectionViewCell {
     
-    //MARK: - Property
+    // MARK: - Property
     private let windowFrameHeight = UIWindow().frame.height
     private let subTitleFont = UIFont.systemFont(ofSize: 17)
     private let titleFont = UIFont.systemFont(ofSize: 20)
@@ -98,7 +97,7 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         posterConstraint()
@@ -110,7 +109,7 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
         self.coverImageView.image = nil
     }
     
-    //MARK: - Setup
+    // MARK: - Setup
     public func setup(data: MoviesCoverCollectionViewCellModel) {
         
         LoadImages().loadImageW500(partOfURL: data.posterPath!) { poster in
@@ -132,9 +131,9 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
 
 extension MoviesCoverCollectionViewCell {
     
-    //MARK: - Constraints
+    // MARK: - Constraints
     private func posterConstraint() {
-        //UIImageView - coverImageView
+        // UIImageView - coverImageView
         self.addSubview(coverImageView)
         coverImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         coverImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -143,49 +142,49 @@ extension MoviesCoverCollectionViewCell {
     }
     
     private func descriptionConstraint() {
-        //UIView - backgroundOpacityView
+        // UIView - backgroundOpacityView
         coverImageView.addSubview(backgroundOpacityView)
         backgroundOpacityView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         backgroundOpacityView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         backgroundOpacityView.heightAnchor.constraint(equalToConstant: self.frame.width/2.5).isActive = true
         backgroundOpacityView.bottomAnchor.constraint(equalTo: coverImageView.bottomAnchor).isActive = true
         
-        //UIStackView - stackView
+        // UIStackView - stackView
         backgroundOpacityView.addSubview(stackView)
         stackView.leadingAnchor.constraint(equalTo: backgroundOpacityView.leadingAnchor, constant: 5).isActive = true
         stackView.trailingAnchor.constraint(equalTo: backgroundOpacityView.trailingAnchor, constant: -5).isActive = true
         stackView.topAnchor.constraint(equalTo: backgroundOpacityView.topAnchor, constant: 5).isActive = true
         stackView.bottomAnchor.constraint(equalTo: backgroundOpacityView.bottomAnchor, constant: -5).isActive = true
 
-        //UIStackView - nameStackView
+        // UIStackView - nameStackView
         stackView.addArrangedSubview(nameStackView)
         nameStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
         nameStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
         nameStackView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 0).isActive = true
 
-        //UILabel - durationLabel
+        // UILabel - durationLabel
         stackView.addArrangedSubview(durationLabel)
         durationLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
         durationLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
         durationLabel.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 0).isActive = true
 
 
-        //UILabel - nameLabel
+        // UILabel - nameLabel
         nameStackView.addArrangedSubview(nameLabel)
         nameLabel.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor, constant: 0).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: nameStackView.trailingAnchor, constant: 0).isActive = true
 
-        //UILabel - genresDateLabel
+        // UILabel - genresDateLabel
         nameStackView.addArrangedSubview(genresLabel)
         genresLabel.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor, constant: 0).isActive = true
         genresLabel.trailingAnchor.constraint(equalTo: nameStackView.trailingAnchor, constant: 0).isActive = true
 
-        //UILabel - dateLabel
+        // UILabel - dateLabel
         nameStackView.addArrangedSubview(dateLabel)
         dateLabel.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor, constant: 0).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: nameStackView.trailingAnchor, constant: 0).isActive = true
         
-        //UILabel - voteAverageLabel
+        // UILabel - voteAverageLabel
         stackView.addSubview(voteAverageLabel)
         voteAverageLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         voteAverageLabel.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true

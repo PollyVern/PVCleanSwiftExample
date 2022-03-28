@@ -9,20 +9,20 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
-    //MARK: - Internal var
+    // MARK: - Internal var
     var isExpanded: Bool = false
     override var prefersStatusBarHidden: Bool {
         return isExpanded
     }
     
-    //MARK: - Internal UI var
+    // MARK: - Internal UI var
     var centerController: UIViewController!
     let blackOpacityView = UIView()
     
-    //MARK: - External var
+    // MARK: - External var
     var profileController: ProfileViewController!
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -31,7 +31,7 @@ class ContainerViewController: UIViewController {
 }
 
 extension ContainerViewController {
-    //MARK: - Helpers
+    // MARK: - Helpers
     private func configure() {
         configureHomeController()
         configureBlackOpacityView()
@@ -92,7 +92,7 @@ extension ContainerViewController {
     }
 }
 
-//MARK: - MoviesViewControllerDelegate
+// MARK: - MoviesViewControllerDelegate
 extension ContainerViewController: MoviesViewControllerDelegate {
     func handleToggle() {
         if !isExpanded {

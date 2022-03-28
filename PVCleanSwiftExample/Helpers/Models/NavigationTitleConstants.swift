@@ -8,6 +8,6 @@
 import Foundation
 
 public struct NavigationTitleConstants {
-    static let movieBrowser = "Movie Browser" //главный экран
+    static let movieBrowser = "Movie Browser" // главный экран
 }
 

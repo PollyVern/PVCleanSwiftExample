@@ -9,7 +9,7 @@ import UIKit
 
 class MovieDetailsView: UIView {
     
-    //MARK: - Internal var
+    // MARK: - Internal var
     private let windowFrameHeight = UIWindow().frame.height
     private let windowFrameWidth = UIWindow().frame.width
     private let starFillImage = UIImage(systemName: "star.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor.orange)
@@ -17,7 +17,7 @@ class MovieDetailsView: UIView {
     private let subTitleFont = UIFont.systemFont(ofSize: 17)
     private let titleFont = UIFont.systemFont(ofSize: 20)
     
-    //MARK: - Internal UI var
+    // MARK: - Internal UI var
     private lazy var containerView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -189,7 +189,7 @@ class MovieDetailsView: UIView {
         return imgView
     }()
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         mainConstraint()
@@ -207,7 +207,7 @@ class MovieDetailsView: UIView {
         makeDashedBorderLine(textViewHeight: calculateTextViewHeight(), selfHeight: self.frame.height)
     }
     
-    //MARK: - Setup
+    // MARK: - Setup
     public func detailsSetup(data: MovieDetailsViewModel) {
         durationLabel.text = data.runtime
         nameLabel.text = data.name
@@ -232,7 +232,7 @@ class MovieDetailsView: UIView {
 
 extension MovieDetailsView {
     
-    //MARK: - Helpers
+    // MARK: - Helpers
     private func updateCirclesMaskAndCornerRadius() {
         containerView.circlesMask()
         containerView.bottomRoundCorners(corners: [.bottomLeft, .bottomRight])
@@ -256,9 +256,9 @@ extension MovieDetailsView {
 
 extension MovieDetailsView {
     
-    //MARK: - Constraint
+    // MARK: - Constraint
     private func mainConstraint() {
-        //UIView - containerView
+        // UIView - containerView
         self.addSubview(containerView)
         self.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
         self.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
@@ -266,7 +266,7 @@ extension MovieDetailsView {
     }
     
     private func durationConstraint() {
-        //UILabel - durationLabel
+        // UILabel - durationLabel
         containerView.addSubview(durationLabel)
         durationLabel.widthAnchor.constraint(equalToConstant: windowFrameWidth/4).isActive = true
         durationLabel.heightAnchor.constraint(equalToConstant: windowFrameHeight/50).isActive = true
@@ -275,41 +275,41 @@ extension MovieDetailsView {
     }
     
     private func starsConstraint() {
-        //UIStackView - starsStackView
+        // UIStackView - starsStackView
         containerView.addSubview(starsStackView)
         starsStackView.widthAnchor.constraint(equalToConstant: windowFrameWidth/4).isActive = true
         starsStackView.heightAnchor.constraint(equalToConstant: windowFrameHeight/50).isActive = true
         starsStackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: windowFrameWidth/4).isActive = true
         starsStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20).isActive = true
         
-        //UIImageView - star1ImageView
+        // UIImageView - star1ImageView
         starsStackView.addArrangedSubview(star1ImageView)
         star1ImageView.topAnchor.constraint(equalTo: starsStackView.topAnchor).isActive = true
         star1ImageView.bottomAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
         
-        //UIImageView - star2ImageView
+        // UIImageView - star2ImageView
         starsStackView.addArrangedSubview(star2ImageView)
         star2ImageView.topAnchor.constraint(equalTo: starsStackView.topAnchor).isActive = true
         star2ImageView.bottomAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
         
-        //UIImageView - star3ImageView
+        // UIImageView - star3ImageView
         starsStackView.addArrangedSubview(star3ImageView)
         star3ImageView.topAnchor.constraint(equalTo: starsStackView.topAnchor).isActive = true
         star3ImageView.bottomAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
         
-        //UIImageView - star4ImageView
+        // UIImageView - star4ImageView
         starsStackView.addArrangedSubview(star4ImageView)
         star4ImageView.topAnchor.constraint(equalTo: starsStackView.topAnchor).isActive = true
         star4ImageView.bottomAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
         
-        //UIImageView - star5ImageView
+        // UIImageView - star5ImageView
         starsStackView.addArrangedSubview(star5ImageView)
         star5ImageView.topAnchor.constraint(equalTo: starsStackView.topAnchor).isActive = true
         star5ImageView.bottomAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
     }
     
     private func nameConstraint() {
-        //UILabel - nameLabel
+        // UILabel - nameLabel
         containerView.addSubview(nameLabel)
         nameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
@@ -318,7 +318,7 @@ extension MovieDetailsView {
     }
     
     private func posterConstraint() {
-        //UIImageView - coverImageView
+        // UIImageView - coverImageView
         containerView.addSubview(coverImageView)
         coverImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 0).isActive = true
         coverImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0).isActive = true
@@ -327,49 +327,49 @@ extension MovieDetailsView {
     }
     
     private func creditsConstraint() {
-        //UIStackView - textStackView
+        // UIStackView - textStackView
         containerView.addSubview(textStackView)
         textStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         textStackView.widthAnchor.constraint(equalToConstant: windowFrameWidth/5).isActive = true
         textStackView.topAnchor.constraint(equalTo: coverImageView.bottomAnchor, constant: 20).isActive = true
         textStackView.heightAnchor.constraint(equalToConstant: windowFrameHeight/7).isActive = true
         
-        //UILabel - textGenresLabel
+        // UILabel - textGenresLabel
         textStackView.addArrangedSubview(textGenresLabel)
         textGenresLabel.leadingAnchor.constraint(equalTo: textStackView.leadingAnchor, constant: 0).isActive = true
         textGenresLabel.trailingAnchor.constraint(equalTo: textStackView.trailingAnchor, constant: 0).isActive = true
         textGenresLabel.topAnchor.constraint(equalTo: textStackView.topAnchor, constant: 0).isActive = true
         
-        //UILabel - textDirectorsLabel
+        // UILabel - textDirectorsLabel
         textStackView.addArrangedSubview(textDirectorsLabel)
         textDirectorsLabel.leadingAnchor.constraint(equalTo: textStackView.leadingAnchor, constant: 0).isActive = true
         textDirectorsLabel.trailingAnchor.constraint(equalTo: textStackView.trailingAnchor, constant: 0).isActive = true
         
-        //UILabel - textStarsLabel
+        // UILabel - textStarsLabel
         textStackView.addArrangedSubview(textStarsLabel)
         textStarsLabel.leadingAnchor.constraint(equalTo: textStackView.leadingAnchor, constant: 0).isActive = true
         textStarsLabel.trailingAnchor.constraint(equalTo: textStackView.trailingAnchor, constant: 0).isActive = true
         textStarsLabel.bottomAnchor.constraint(equalTo: textStackView.bottomAnchor, constant: 0).isActive = true
         
-        //UIStackView - stackView
+        // UIStackView - stackView
         containerView.addSubview(stackView)
         stackView.leadingAnchor.constraint(equalTo: textStackView.trailingAnchor, constant: 10).isActive = true
         stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         stackView.topAnchor.constraint(equalTo: coverImageView.bottomAnchor, constant: 20).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: windowFrameHeight/8).isActive = true
         
-        //UILabel - genresLabel
+        // UILabel - genresLabel
         stackView.addArrangedSubview(genresLabel)
         genresLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
         genresLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
         genresLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 0).isActive = true
         
-        //UILabel - directorsLabel
+        // UILabel - directorsLabel
         stackView.addArrangedSubview(directorsLabel)
         directorsLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
         directorsLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
         
-        //UILabel - starsLabel
+        // UILabel - starsLabel
         stackView.addArrangedSubview(starsLabel)
         starsLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
         starsLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
@@ -377,7 +377,7 @@ extension MovieDetailsView {
     }
     
     private func descriptionConstraint() {
-        //UITextView - textView
+        // UITextView - textView
         containerView.addSubview(textView)
         textView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         textView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true

@@ -7,14 +7,14 @@
 
 import Foundation
 
-//MARK: - Protocol
+// MARK: - Protocol
 
 protocol ProfilePresentationLogic {
     func presentData(data: [ProfileResponse])
 }
 
 class ProfilePresenter {
-    //MARK: - External vars
+    // MARK: - External vars
     weak var viewController: ProfileDisplayLogic?
 }
 

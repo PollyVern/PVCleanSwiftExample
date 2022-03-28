@@ -7,19 +7,19 @@
 
 import Foundation
 
-//MARK: - Protocol
+// MARK: - Protocol
 protocol MoviesPresentationLogic {
     func presentData(data: [MoviesListResponse])
 }
 
 class MoviesPresenter {
     
-    //MARK: - External vars
+    // MARK: - External vars
     weak var viewController: MoviesDisplayLogic?
 }
 
 
-//MARK: - MoviesPresentationLogic
+// MARK: - MoviesPresentationLogic
 extension MoviesPresenter: MoviesPresentationLogic {
     public func presentData(data: [MoviesListResponse]) {
         let viewModel = data.map { model -> MoviesCoverCollectionViewCellModel in
@@ -37,7 +37,7 @@ extension MoviesPresenter: MoviesPresentationLogic {
 }
 
 extension MoviesPresenter {
-    //MARK: - Helpers
+    // MARK: - Helpers
     private func presentGenresString(model: MoviesListResponse) -> String {
         var genresArray = [String]()
         

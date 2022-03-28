@@ -7,31 +7,26 @@
 
 import UIKit
 
-//MARK: - Protocol
+// MARK: - Protocol
 protocol ProfileDisplayLogic: AnyObject {
     func profileDetailsDisplay(data: [ProfileViewModel])
 }
 
 class ProfileViewController: UIViewController {
     
-    //MARK: - External var
+    // MARK: - External var
     var delegate: MoviesViewControllerDelegate?
     private var interactor: ProfileBusinessLogic?
     private var profileData = [ProfileViewModel]()
     
-    //MARK: - Internal UI var
+    // MARK: - Internal UI var
     lazy var profileView: ProfileView = {
         var view = ProfileView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-        
-    //MARK: - Lifecycle
-    override func loadView() {
-        super.loadView()
-    }
-    
-    //MARK: - Lifecycle
+            
+    // MARK: - Lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -61,7 +56,7 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController {
-    //MARK: - constraint
+    // MARK: - constraint
     private func configureProfileView() {
         view.addSubview(profileView)
         profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -88,7 +83,7 @@ extension ProfileViewController: ProfileDisplayLogic {
 
 //extension ProfileViewController {
 //
-//    //MARK: - Actions: Other
+//    // MARK: - Actions: Other
 //@objc private func tapCallButton() {
 //    if let url = URL(string: "tel://\(ProfileViewModel().phoneNumber)"),
 //       UIApplication.shared.canOpenURL(url) {
@@ -104,7 +99,7 @@ extension ProfileViewController: ProfileDisplayLogic {
 
 //extension ProfileViewController: MFMailComposeViewControllerDelegate {
 //
-//    //MARK: - Actions: Mail
+//    // MARK: - Actions: Mail
 //    private func configureMailController() -> MFMailComposeViewController {
 //        let mailComposer = MFMailComposeViewController()
 //        mailComposer.mailComposeDelegate = self

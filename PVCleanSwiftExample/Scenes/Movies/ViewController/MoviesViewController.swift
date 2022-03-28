@@ -18,7 +18,7 @@
 
 import UIKit
 
-//MARK: - Protocol
+// MARK: - Protocol
 protocol MoviesDisplayLogic: AnyObject {
     func display(data: [MoviesCoverCollectionViewCellModel])
 }
@@ -29,18 +29,18 @@ protocol MoviesViewControllerDelegate {
 
 class MoviesViewController: UIViewController {
     
-    //MARK: - Internal var
+    // MARK: - Internal var
     lazy var collectionView: UICollectionView = {
         var collectionView = UICollectionView()
         return collectionView
     }()
         
-    //MARK: - External var
+    // MARK: - External var
     private var interactor: BusinessLogic?
     private var displayMoviesIDs = [MoviesCoverCollectionViewCellModel]()
     var delegate: MoviesViewControllerDelegate?
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -68,7 +68,7 @@ class MoviesViewController: UIViewController {
         viewController.interactor = interactor
     }
  
-    //MARK: - Internal logic
+    // MARK: - Internal logic
     private func configureTableView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: CollectionViewLayout().createCollectionViewLayout())
         collectionView.frame = CGRect(x: 0, y: 0, width: view.bounds.size.width, height: view.bounds.size.height)
@@ -79,7 +79,7 @@ class MoviesViewController: UIViewController {
         view.addSubview(collectionView)
     }
     
-    //MARK: - Helpers
+    // MARK: - Helpers
     private func configureNavigation() {
         navigationItem.title = NavigationTitleConstants.movieBrowser
         if #available(iOS 15, *) {
@@ -107,7 +107,7 @@ class MoviesViewController: UIViewController {
     }
 }
 
-//MARK: - MoviesDisplayLogic
+// MARK: - MoviesDisplayLogic
 extension MoviesViewController: MoviesDisplayLogic {
     func display(data: [MoviesCoverCollectionViewCellModel]) {
         displayMoviesIDs.removeAll()
@@ -116,7 +116,7 @@ extension MoviesViewController: MoviesDisplayLogic {
     }
 }
 
-//MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension MoviesViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -129,7 +129,7 @@ extension MoviesViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension MoviesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return displayMoviesIDs.count

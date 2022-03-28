@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileView: UIView {
 
-    //MARK: - Internal vars
+    // MARK: - Internal vars
     private let windowFrameHeight = UIWindow().frame.height
     private let subTitleFont = UIFont.systemFont(ofSize: 17)
     private let titleFont = UIFont.systemFont(ofSize: 20)
@@ -30,7 +30,7 @@ class ProfileView: UIView {
         return buttonsWidth/2
     }
 
-    //MARK: - Internal UI vars
+    // MARK: - Internal UI vars
     private lazy var avatarImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
@@ -137,7 +137,7 @@ class ProfileView: UIView {
         return button
     }()
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(ColorConstants.backgroundColor)
@@ -161,9 +161,9 @@ class ProfileView: UIView {
 }
 
 extension ProfileView {
-    //MARK: - Constraint
+    // MARK: - Constraint
     private func avatarConstraint() {
-        //UIImageView
+        // UIImageView
         self.addSubview(avatarImageView)
         avatarImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         avatarImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -172,20 +172,20 @@ extension ProfileView {
     }
     
     private func upStackConstraint() {
-        //UIStackView - nameStackView
+        // UIStackView - nameStackView
         self.addSubview(nameStackView)
         nameStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         nameStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         nameStackView.bottomAnchor.constraint(equalTo: avatarImageView.topAnchor, constant: -20).isActive = true
         nameStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     
-        //UILabel - nameLabel
+        // UILabel - nameLabel
         nameStackView.addArrangedSubview(nameLabel)
         nameLabel.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor, constant: 0).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: nameStackView.trailingAnchor, constant: 0).isActive = true
         nameLabel.topAnchor.constraint(equalTo: nameStackView.topAnchor, constant: 0).isActive = true
         
-        //UILabel - dateBirthLabel
+        // UILabel - dateBirthLabel
         nameStackView.addArrangedSubview(dateBirthLabel)
         dateBirthLabel.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor, constant: 0).isActive = true
         dateBirthLabel.trailingAnchor.constraint(equalTo: nameStackView.trailingAnchor, constant: 0).isActive = true
@@ -193,20 +193,20 @@ extension ProfileView {
     }
     
     private func downStackConstraint() {
-        //UIStackView - communicationStackView
+        // UIStackView - communicationStackView
         self.addSubview(communicationStackView)
         communicationStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         communicationStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         communicationStackView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 20).isActive = true
         communicationStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     
-        //UILabel - numberLabel
+        // UILabel - numberLabel
         communicationStackView.addArrangedSubview(numberLabel)
         numberLabel.leadingAnchor.constraint(equalTo: communicationStackView.leadingAnchor, constant: 0).isActive = true
         numberLabel.trailingAnchor.constraint(equalTo: communicationStackView.trailingAnchor, constant: 0).isActive = true
         numberLabel.topAnchor.constraint(equalTo: communicationStackView.topAnchor, constant: 0).isActive = true
         
-        //UILabel - emailLabel
+        // UILabel - emailLabel
         communicationStackView.addArrangedSubview(emailLabel)
         emailLabel.leadingAnchor.constraint(equalTo: communicationStackView.leadingAnchor, constant: 0).isActive = true
         emailLabel.trailingAnchor.constraint(equalTo: communicationStackView.trailingAnchor, constant: 0).isActive = true
@@ -214,21 +214,21 @@ extension ProfileView {
     }
 
     private func buttonsStackConstraint() {
-        //UIStackView - buttonsStackView
+        // UIStackView - buttonsStackView
         self.addSubview(buttonsStackView)
         buttonsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 70).isActive = true
         buttonsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -70).isActive = true
         buttonsStackView.topAnchor.constraint(equalTo: communicationStackView.bottomAnchor, constant: 20).isActive = true
         buttonsStackView.heightAnchor.constraint(equalToConstant: buttonsWidth).isActive = true
         
-        //UILabel - callButton
+        // UILabel - callButton
         buttonsStackView.addArrangedSubview(callButton)
         callButton.topAnchor.constraint(equalTo: buttonsStackView.topAnchor).isActive = true
         callButton.bottomAnchor.constraint(equalTo: buttonsStackView.bottomAnchor).isActive = true
         callButton.leadingAnchor.constraint(equalTo: buttonsStackView.leadingAnchor).isActive = true
         callButton.widthAnchor.constraint(equalToConstant: buttonsWidth).isActive = true
 
-        //UILabel - emailButton
+        // UILabel - emailButton
         buttonsStackView.addArrangedSubview(emailButton)
         emailButton.topAnchor.constraint(equalTo: buttonsStackView.topAnchor).isActive = true
         emailButton.bottomAnchor.constraint(equalTo: buttonsStackView.bottomAnchor).isActive = true
@@ -237,7 +237,7 @@ extension ProfileView {
     }
     
     private func closeButtonConstraint() {
-        //UIButton - closeButton
+        // UIButton - closeButton
         self.addSubview(closeButton)
         closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: UIApplication.statusBarHeight).isActive = true
         closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true

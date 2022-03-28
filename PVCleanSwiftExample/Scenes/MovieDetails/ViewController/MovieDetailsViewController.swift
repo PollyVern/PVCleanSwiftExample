@@ -7,7 +7,7 @@
 
 import UIKit
 
-//MARK: - Protocol
+// MARK: - Protocol
 protocol MovieDetailsDisplayLogic: AnyObject {
     func movieDetailsDisplay(data: [MovieDetailsViewModel])
     func movieCreditsDisplay(data: [MovieCreditsViewModel])
@@ -15,24 +15,24 @@ protocol MovieDetailsDisplayLogic: AnyObject {
 
 class MovieDetailsViewController: UIViewController {
     
-    //MARK: - Internal vars
+    // MARK: - Internal vars
     private var displayMovieDetails = [MovieDetailsViewModel]()
     private var displayMovieCredits = [MovieCreditsViewModel]()
     var statusBarHeight = CGFloat()
     var movieID = Int()
     
-    //MARK: - External vars
+    // MARK: - External vars
     private var detailsInteractor: DetailsBusinessLogic?
     private var creditsInteractor: CreditsBusinessLogic?
     
-    //MARK: - Internal UI vars
+    // MARK: - Internal UI vars
     lazy var movieDetailsView: MovieDetailsView = {
         var view = MovieDetailsView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -53,7 +53,7 @@ class MovieDetailsViewController: UIViewController {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
     }
     
-    //MARK: - Helpers
+    // MARK: - Helpers
     private func setup() {
         let viewController = self
         let presenter = MovieDetailsPresenter()
@@ -91,7 +91,7 @@ class MovieDetailsViewController: UIViewController {
  
 }
 
-//MARK: - MovieDetailsDisplayLogic
+// MARK: - MovieDetailsDisplayLogic
 extension MovieDetailsViewController: MovieDetailsDisplayLogic {
     func movieDetailsDisplay(data: [MovieDetailsViewModel]) {
         displayMovieDetails.removeAll()
