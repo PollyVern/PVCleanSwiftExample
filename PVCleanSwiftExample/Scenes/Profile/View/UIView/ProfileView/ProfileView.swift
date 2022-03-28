@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import MessageUI
+
+protocol MailComposePresent {
+    func mailPresent(mailCompose: MFMailComposeViewController)
+    func mailErrorAlert(alert: UIAlertController)
+}
 
 class ProfileView: UIView {
 
@@ -13,6 +19,9 @@ class ProfileView: UIView {
     private let windowFrameHeight = UIWindow().frame.height
     private let subTitleFont = UIFont.systemFont(ofSize: 17)
     private let titleFont = UIFont.systemFont(ofSize: 20)
+        
+    var delegate: MailComposePresent?
+    var delegateToggle: MoviesViewControllerDelegate?
     
     private var avatarHeight: CGFloat {
         return windowFrameHeight/6
@@ -116,6 +125,7 @@ class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(ColorConstants.lightBackgroundColor)
         button.setImage(UIImage(systemName: "phone", withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonsWidth/2))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor(ColorConstants.titleColor)), for: .normal)
+        button.addTarget(self, action: #selector(tapCallButton), for: .touchUpInside)
         return button
     }()
     
@@ -125,6 +135,7 @@ class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(ColorConstants.lightBackgroundColor)
         button.setImage(UIImage(systemName: "envelope", withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonsWidth/2))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor(ColorConstants.titleColor)), for: .normal)
+        button.addTarget(self, action: #selector(tapSendButton), for: .touchUpInside)
         return button
     }()
     
@@ -134,6 +145,7 @@ class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(ColorConstants.lightBackgroundColor)
         button.setImage(UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonsWidth/2/2))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor(ColorConstants.titleColor)), for: .normal)
+        button.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
         return button
     }()
     
@@ -157,6 +169,22 @@ class ProfileView: UIView {
         dateBirthLabel.text = "Девушка | \(data.dateBirth!)"
         numberLabel.text = data.phoneNumber
         emailLabel.text = data.email
+    }
+    
+    @objc private func tapCallButton() {
+        CallButtonTap().openCallFromURL(tel: ProfileRequest().phoneNumber)
+    }
+    
+    @objc private func tapSendButton() {
+        MailButtonTap().openMailCompose(mail: ProfileRequest().email) { mailComposeViewController in
+            self.delegate?.mailPresent(mailCompose: mailComposeViewController)
+        } errorCompletion: { errorAlert in
+            self.delegate?.mailErrorAlert(alert: errorAlert)
+        }
+    }
+    
+    @objc private func tapCloseButton()  {
+        delegateToggle?.handleToggle()
     }
 }
 

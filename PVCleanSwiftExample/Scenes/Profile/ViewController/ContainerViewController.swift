@@ -49,7 +49,7 @@ extension ContainerViewController {
     private func configureProfileController() {
         if profileController == nil {
             profileController = ProfileViewController()
-            profileController.delegate = self
+            profileController.profileView.delegateToggle = self
             view.insertSubview(profileController.view, at: 0)
             addChild(profileController)
             profileController.didMove(toParent: self)

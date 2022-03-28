@@ -22,5 +22,5 @@ extension ProfileInteractor: ProfileBusinessLogic {
         backendResponse.append(ProfileResponse(name: data.name, dateBirth: data.dateBirth, phoneNumber: data.phoneNumber, email: data.email))
         self.presenter?.presentData(data: backendResponse)
     }
-    
+
 }
