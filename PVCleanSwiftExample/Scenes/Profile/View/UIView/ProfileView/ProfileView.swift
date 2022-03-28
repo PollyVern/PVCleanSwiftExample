@@ -116,7 +116,6 @@ class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(ColorConstants.lightBackgroundColor)
         button.setImage(UIImage(systemName: "phone", withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonsWidth/2))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor(ColorConstants.titleColor)), for: .normal)
-//        button.addTarget(self, action: #selector(tapCallButton), for: .touchUpInside)
         return button
     }()
     

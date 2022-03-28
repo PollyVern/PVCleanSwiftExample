@@ -62,7 +62,7 @@ class MoviesViewController: UIViewController {
     private func setup() {
         let viewController = self
         let presenter = MoviesPresenter()
-        let interactor = ServiceInteractor()
+        let interactor = MoviesInteractor()
         interactor.presenter = presenter
         presenter.viewController = viewController
         viewController.interactor = interactor

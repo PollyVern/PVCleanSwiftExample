@@ -69,7 +69,7 @@ extension ProfileViewController {
         profileView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         profileView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        
+//        button.addTarget(self, action: #selector(tapCallButton), for: .touchUpInside)
 //        profileView.emailButton.addTarget(self, action: #selector(tapSendButton), for: .touchUpInside)
 //        profileView.closeButton.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
     }
