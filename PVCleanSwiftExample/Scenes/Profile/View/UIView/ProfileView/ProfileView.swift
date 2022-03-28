@@ -10,9 +10,9 @@ import UIKit
 class ProfileView: UIView {
 
     //MARK: - Internal vars
-    let windowFrameHeight = UIWindow().frame.height
-    let subTitleFont = UIFont.systemFont(ofSize: 17)
-    let titleFont = UIFont.systemFont(ofSize: 20)
+    private let windowFrameHeight = UIWindow().frame.height
+    private let subTitleFont = UIFont.systemFont(ofSize: 17)
+    private let titleFont = UIFont.systemFont(ofSize: 20)
     
     private var avatarHeight: CGFloat {
         get {
@@ -39,7 +39,7 @@ class ProfileView: UIView {
     }
 
     //MARK: - Internal UI vars
-    lazy var avatarImageView: UIImageView = {
+    private lazy var avatarImageView: UIImageView = {
         var imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
         imgView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,7 @@ class ProfileView: UIView {
         return imgView
     }()
 
-    lazy var nameStackView: UIStackView = {
+    private lazy var nameStackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 4
@@ -60,7 +60,7 @@ class ProfileView: UIView {
         return stackView
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -71,7 +71,7 @@ class ProfileView: UIView {
         return label
     }()
     
-    lazy var dateBirthLabel: UILabel = {
+    private lazy var dateBirthLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -82,7 +82,7 @@ class ProfileView: UIView {
         return label
     }()
     
-    lazy var communicationStackView: UIStackView = {
+    private lazy var communicationStackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 4
@@ -91,7 +91,7 @@ class ProfileView: UIView {
         return stackView
     }()
     
-    lazy var numberLabel: UILabel = {
+    private lazy var numberLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -102,7 +102,7 @@ class ProfileView: UIView {
         return label
     }()
     
-    lazy var emailLabel: UILabel = {
+    private lazy var emailLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -113,7 +113,7 @@ class ProfileView: UIView {
         return label
     }()
     
-    lazy var buttonsStackView: UIStackView = {
+    private lazy var buttonsStackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 4
@@ -122,7 +122,7 @@ class ProfileView: UIView {
         return stackView
     }()
     
-    lazy var callButton: UIButton = {
+    private lazy var callButton: UIButton = {
         var button = UIButton()
         button.layer.cornerRadius = buttonsCornerRadius
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -131,7 +131,7 @@ class ProfileView: UIView {
         return button
     }()
     
-    lazy var emailButton: UIButton = {
+    private lazy var emailButton: UIButton = {
         var button = UIButton()
         button.layer.cornerRadius = buttonsCornerRadius
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -140,7 +140,7 @@ class ProfileView: UIView {
         return button
     }()
     
-    lazy var closeButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         var button = UIButton()
         button.layer.cornerRadius = buttonsWidth/2/2
         button.translatesAutoresizingMaskIntoConstraints = false
