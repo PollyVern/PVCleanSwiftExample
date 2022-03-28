@@ -15,27 +15,19 @@ class ProfileView: UIView {
     private let titleFont = UIFont.systemFont(ofSize: 20)
     
     private var avatarHeight: CGFloat {
-        get {
-            return windowFrameHeight/6
-        }
+        return windowFrameHeight/6
     }
     
     private var avatarCornerRadius: CGFloat {
-        get {
-            return avatarHeight/2
-        }
+        return avatarHeight/2
     }
     
     private var buttonsWidth: CGFloat {
-        get {
-            return avatarHeight/2
-        }
+        return avatarHeight/2
     }
     
     private var buttonsCornerRadius: CGFloat {
-        get {
-            return buttonsWidth/2
-        }
+        return buttonsWidth/2
     }
 
     //MARK: - Internal UI vars
@@ -65,7 +57,6 @@ class ProfileView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         label.textColor = UIColor(ColorConstants.titleColor)
-        label.text = ProfileViewModel().name
         label.textAlignment = .center
         label.font = titleFont
         return label
@@ -76,7 +67,6 @@ class ProfileView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         label.textColor = UIColor(ColorConstants.textColor)
-        label.text = "Девушка | \(ProfileViewModel().dateBirth)"
         label.textAlignment = .center
         label.font = subTitleFont
         return label
@@ -96,7 +86,6 @@ class ProfileView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         label.textColor = UIColor(ColorConstants.textColor)
-        label.text = ProfileViewModel().phoneNumber
         label.textAlignment = .center
         label.font = subTitleFont
         return label
@@ -107,7 +96,6 @@ class ProfileView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         label.textColor = UIColor(ColorConstants.textColor)
-        label.text = ProfileViewModel().email
         label.textAlignment = .center
         label.font = subTitleFont
         return label
@@ -128,6 +116,7 @@ class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(ColorConstants.lightBackgroundColor)
         button.setImage(UIImage(systemName: "phone", withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonsWidth/2))?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor(ColorConstants.titleColor)), for: .normal)
+//        button.addTarget(self, action: #selector(tapCallButton), for: .touchUpInside)
         return button
     }()
     
@@ -162,6 +151,13 @@ class ProfileView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    public func setup(data: ProfileViewModel) {
+        nameLabel.text = data.name
+        dateBirthLabel.text = "Девушка | \(data.dateBirth!)"
+        numberLabel.text = data.phoneNumber
+        emailLabel.text = data.email
     }
 }
 
