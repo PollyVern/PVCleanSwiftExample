@@ -11,25 +11,18 @@ extension UIView {
     
     func bottomRoundCorners(corners: UIRectCorner) {
         let radius = CGFloat(5)
-        if #available(iOS 11, *) {
-            self.clipsToBounds = true
-            self.layer.cornerRadius = radius
-            var masked = CACornerMask()
-            if corners.contains(.bottomLeft) { masked.insert(.layerMinXMaxYCorner) }
-            if corners.contains(.bottomRight) { masked.insert(.layerMaxXMaxYCorner) }
-            self.layer.maskedCorners = masked
-        } else {
-            let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-            let mask = CAShapeLayer()
-            mask.path = path.cgPath
-            layer.mask = mask
-        }
+        self.clipsToBounds = true
+        self.layer.cornerRadius = radius
+        var masked = CACornerMask()
+        if corners.contains(.bottomLeft) { masked.insert(.layerMinXMaxYCorner) }
+        if corners.contains(.bottomRight) { masked.insert(.layerMaxXMaxYCorner) }
+        self.layer.maskedCorners = masked
     }
-
+    
     func circlesMask() {
         let path = UIBezierPath()
         path.move(to: bounds.origin)
-
+        
         let center = CGPoint(x: bounds.midX, y: bounds.minY)
         let left = CGPoint(x: 0, y: 0)
         let right = CGPoint(x: bounds.midX*2, y: bounds.minY*2)

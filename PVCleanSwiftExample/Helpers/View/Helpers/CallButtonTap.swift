@@ -10,10 +10,8 @@ import UIKit
 final class CallButtonTap {
     
     public func openCallFromURL(tel: String) {
-        if let url = URL(string: "tel://\(tel)"),
-           UIApplication.shared.canOpenURL(url) {
+       guard let url = URL(string: "tel://\(tel)") else { return }
             UIApplication.shared.open(url, options: [:], completionHandler:nil)
-        }
     }
 
 }

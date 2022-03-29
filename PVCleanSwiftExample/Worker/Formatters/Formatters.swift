@@ -10,21 +10,20 @@ import Foundation
 class Formatters {
     
     func dateFormatter(dateString: String) -> String {
-        if dateString == "" {
-            return ""
-        } else {
-            let originalFormatter = DateFormatter()
-            originalFormatter.dateFormat = "yyyy-MM-dd"
-            
-            let finishFormatter = DateFormatter()
-            finishFormatter.dateFormat = "yyyy"
-            return finishFormatter.string(from: originalFormatter.date(from: dateString)!)
-        }
+        guard dateString != "" else { return ""}
+        
+        let originalFormatter = DateFormatter()
+        originalFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let finishFormatter = DateFormatter()
+        finishFormatter.dateFormat = "yyyy"
+        return finishFormatter.string(from: originalFormatter.date(from: dateString)!)
     }
     
     func minutesToHoursFormatter(dataMinutes: Int) -> String {
         let hours = dataMinutes / 60
         let minutes = dataMinutes % 60
+
         if minutes == 0 {
             let text = "\(hours)" + "ч "
             return text
