@@ -9,14 +9,19 @@ import Foundation
 
 
 protocol DetailsBusinessLogic {
-    func loadMovieDetails(movieID: MovieDetailsRequest)
+    func loadMovieDetails()
 }
 
 protocol CreditsBusinessLogic {
-    func loadMovieCredits(movieID: MovieDetailsRequest)
+    func loadMovieCredits()
 }
 
-class MovieDetailsInteractor {
+protocol DetailsStoreProtocol: AnyObject {
+    var movieID: Int { get set }
+}
+
+class MovieDetailsInteractor: DetailsStoreProtocol {
+    var movieID: Int = 0
     var presenter = MovieDetailsPresenter()
     var detailsPresenter: MovieDetailsPresentationLogic?
     var creditsPresenter: MovieCreditsPresentationLogic?
@@ -25,19 +30,18 @@ class MovieDetailsInteractor {
 }
 
 extension MovieDetailsInteractor: DetailsBusinessLogic {
-    func loadMovieDetails(movieID: MovieDetailsRequest) {
-        loadMovieDetailsWorker.loadMovieDetails(movieID: movieID.movieId!) { movieDetailsListResponse in
+    func loadMovieDetails() {
+        loadMovieDetailsWorker.loadMovieDetails(movieID: movieID) { movieDetailsListResponse in
             self.detailsPresenter?.presentData(data: movieDetailsListResponse)
         }
     }
 }
 
 extension MovieDetailsInteractor: CreditsBusinessLogic {
-    func loadMovieCredits(movieID: MovieDetailsRequest) {
-        loadMovieCreditsWorker.loadMovieCredits(movieID: movieID.movieId!) { movieCreditsListResponse in
+    func loadMovieCredits() {
+        loadMovieCreditsWorker.loadMovieCredits(movieID: movieID) { movieCreditsListResponse in
             self.creditsPresenter?.presentData(data: movieCreditsListResponse)
         }
     }
-    
     
 }

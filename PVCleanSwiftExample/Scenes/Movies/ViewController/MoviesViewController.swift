@@ -28,7 +28,6 @@ protocol MoviesViewControllerDelegate {
 }
 
 class MoviesViewController: UIViewController {
-    
     // MARK: - Internal var
     lazy var collectionView: UICollectionView = {
         var collectionView = UICollectionView()
@@ -37,6 +36,7 @@ class MoviesViewController: UIViewController {
         
     // MARK: - External var
     private var interactor: BusinessLogic?
+    private(set) var router: MoviesRoutingLogic?
     private var displayMoviesIDs = [MoviesCoverCollectionViewCellModel]()
     var delegate: MoviesViewControllerDelegate?
     
@@ -63,9 +63,12 @@ class MoviesViewController: UIViewController {
         let viewController = self
         let presenter = MoviesPresenter()
         let interactor = MoviesInteractor()
+        let router = MoviesRouter()
         interactor.presenter = presenter
         presenter.viewController = viewController
         viewController.interactor = interactor
+        viewController.router = router
+        router.viewController = viewController
     }
  
     // MARK: - Internal logic
@@ -120,12 +123,7 @@ extension MoviesViewController: MoviesDisplayLogic {
 extension MoviesViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movieDetailsVC = MovieDetailsViewController()
-        movieDetailsVC.modalPresentationStyle = .overCurrentContext
-        movieDetailsVC.modalTransitionStyle = .crossDissolve
-        movieDetailsVC.statusBarHeight = UIApplication.statusBarHeight
-        movieDetailsVC.movieID = displayMoviesIDs[indexPath.row].id
-        self.present(movieDetailsVC, animated: true)
+        router?.navigateToDetails(movieID: displayMoviesIDs[indexPath.row].id)
     }
 }
 
@@ -141,4 +139,5 @@ extension MoviesViewController: UICollectionViewDataSource {
         
         return cell
     }
+
 }

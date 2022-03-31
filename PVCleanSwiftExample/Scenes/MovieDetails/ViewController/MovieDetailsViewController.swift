@@ -19,11 +19,11 @@ class MovieDetailsViewController: UIViewController {
     private var displayMovieDetails = [MovieDetailsViewModel]()
     private var displayMovieCredits = [MovieCreditsViewModel]()
     var statusBarHeight = CGFloat()
-    var movieID = Int()
     
     // MARK: - External vars
-    private var detailsInteractor: DetailsBusinessLogic?
-    private var creditsInteractor: CreditsBusinessLogic?
+    private var detailsInteractor: (DetailsBusinessLogic & DetailsStoreProtocol)?
+    private var creditsInteractor: (CreditsBusinessLogic & DetailsStoreProtocol)?
+    private(set) var router: (MovieDetailsRoutingLogic & MovieDetailsDataPassingProtocol)?
     
     // MARK: - Internal UI vars
     lazy var movieDetailsView: MovieDetailsView = {
@@ -45,9 +45,9 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailsInteractor?.loadMovieDetails()
+        creditsInteractor?.loadMovieCredits()
         setup()
-        detailsInteractor?.loadMovieDetails(movieID: movieIDSetup())
-        creditsInteractor?.loadMovieCredits(movieID: movieIDSetup())
         configureDetailView()
         tapGestureDismiss()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
@@ -58,19 +58,22 @@ class MovieDetailsViewController: UIViewController {
         let viewController = self
         let presenter = MovieDetailsPresenter()
         let interactor = MovieDetailsInteractor()
+        let router = MovieDetailsRouter()
+        router.dataStore = interactor
         interactor.detailsPresenter = presenter
         interactor.creditsPresenter = presenter
         presenter.viewController = viewController
+        viewController.router = router
         viewController.detailsInteractor = interactor
         viewController.creditsInteractor = interactor
     }
     
-    private func movieIDSetup() -> MovieDetailsRequest {
-        var movieDetailsRequest = [MovieDetailsRequest]()
-        movieDetailsRequest.removeAll()
-        movieDetailsRequest.append(MovieDetailsRequest(movieId: movieID))
-        return movieDetailsRequest[0]
-    }
+//    private func movieIDSetup() -> MovieDetailsRequest {
+//        var movieDetailsRequest = [MovieDetailsRequest]()
+//        movieDetailsRequest.removeAll()
+//        movieDetailsRequest.append(MovieDetailsRequest(movieId: movieID))
+//        return movieDetailsRequest[0]
+//    }
     
     private func configureDetailView() {
         view.addSubview(movieDetailsView)

@@ -53,6 +53,8 @@
 		36BB432E27EE441E004DD5C8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB432D27EE441E004DD5C8 /* ProfileViewModel.swift */; };
 		36BB433127EE4452004DD5C8 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB433027EE4452004DD5C8 /* ContainerViewController.swift */; };
 		36BB433427EE4466004DD5C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB433327EE4466004DD5C8 /* ProfileViewController.swift */; };
+		36D5CF3C27F64AF400F6F2F5 /* MovieDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D5CF3B27F64AF400F6F2F5 /* MovieDetailsRouter.swift */; };
+		36D5CF3E27F6527F00F6F2F5 /* MoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D5CF3D27F6527F00F6F2F5 /* MoviesRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,8 @@
 		36BB432D27EE441E004DD5C8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		36BB433027EE4452004DD5C8 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		36BB433327EE4466004DD5C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		36D5CF3B27F64AF400F6F2F5 /* MovieDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRouter.swift; sourceTree = "<group>"; };
+		36D5CF3D27F6527F00F6F2F5 /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +417,7 @@
 				366307C127F233BA00F9FC7A /* Interactor */,
 				36BB431427EE4301004DD5C8 /* Presenter */,
 				366307C227F233CA00F9FC7A /* Model */,
+				36D5CF3727F6443800F6F2F5 /* Router */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				366307CD27F23F9D00F9FC7A /* Interactor */,
 				36BB432427EE43A9004DD5C8 /* Presenter */,
 				366307D227F2433700F9FC7A /* Model */,
+				36D5CF3A27F64ADE00F6F2F5 /* Router */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -561,6 +567,22 @@
 				36BB433327EE4466004DD5C8 /* ProfileViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		36D5CF3727F6443800F6F2F5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				36D5CF3D27F6527F00F6F2F5 /* MoviesRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		36D5CF3A27F64ADE00F6F2F5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				36D5CF3B27F64AF400F6F2F5 /* MovieDetailsRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -666,8 +688,10 @@
 				366307CC27F23F1800F9FC7A /* LoadMovieDetailsWorker.swift in Sources */,
 				36BB42F027EE4195004DD5C8 /* MovieGenresListResponse.swift in Sources */,
 				36BB42E227EE3FC5004DD5C8 /* UIApplication.swift in Sources */,
+				36D5CF3E27F6527F00F6F2F5 /* MoviesRouter.swift in Sources */,
 				36BB432C27EE43F4004DD5C8 /* ProfileView.swift in Sources */,
 				366307E327F2652500F9FC7A /* MailButtonTap.swift in Sources */,
+				36D5CF3C27F64AF400F6F2F5 /* MovieDetailsRouter.swift in Sources */,
 				36BB42E427EE3FD1004DD5C8 /* UIView.swift in Sources */,
 				36BB42C827EE3F45004DD5C8 /* SceneDelegate.swift in Sources */,
 				366307BD27F228F800F9FC7A /* ProfileRequest.swift in Sources */,
