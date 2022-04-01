@@ -17,7 +17,7 @@
 
 ## Превью приложения
 <p align="center">
-<img src="https://github.com/PollyVern/ContentForRepositories/blob/e7840d2b9c33eec0befb6542e559c0ee6fcd3aea/PreviewCleanSwiftExample.png" height="500">
+<img src="https://github.com/PollyVern/ContentForRepositories/blob/e7840d2b9c33eec0befb6542e559c0ee6fcd3aea/PreviewCleanSwiftExample.png" width="500">
 </p>
 
 ## Для работы с приложением нужно добавить API ключ из файла!
@@ -30,10 +30,10 @@ Cоздайте API ключ и занесите его в переменную 
 
 3. Перейдите в `Xcode` -> `Edit Scheme...` -> ...
 
-<img src="https://github.com/PollyVern/ContentForRepositories/blob/d3f3e2ef4094aa422b7e218413182c4ab798e91f/Environment%20variable%20-%20Edit.png" height="200">
+<img src="https://github.com/PollyVern/ContentForRepositories/blob/d3f3e2ef4094aa422b7e218413182c4ab798e91f/Environment%20variable%20-%20Edit.png" width="200">
 
 ... -> `Run` -> `Arguments` -> `Environment Variables`
 
-<img src="https://github.com/PollyVern/ContentForRepositories/blob/d3f3e2ef4094aa422b7e218413182c4ab798e91f/Environment%20variable%20-%20Propertys.png" height="300">
+<img src="https://github.com/PollyVern/ContentForRepositories/blob/d3f3e2ef4094aa422b7e218413182c4ab798e91f/Environment%20variable%20-%20Propertys.png" width="300">
 
 И создайте новую переменную окружения с именем **"APIkey"**(!!!). В значение вставьте ключ API.
