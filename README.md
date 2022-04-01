@@ -2,8 +2,9 @@
 Приложение построено на архитектуре CleanSwift.
 
 <p align="center">
-<img src="https://github.com/PollyVern/PVCleanSwiftExample/blob/e098d99c369636beddcd5edfba10615ddb093872/Icon.png" width="100">
+<img src="https://github.com/PollyVern/ContentForRepositories/blob/746b8d0f552ba024f648228adae4aaca702c7614/CleanSwiftArc.png" width="800">
 </p>
+
 
 Использованы стеки:
 - CleanSwift
