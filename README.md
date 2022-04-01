@@ -2,7 +2,7 @@
 Приложение построено на архитектуре CleanSwift.
 
 <p align="center">
-<img src="https://github.com/PollyVern/ContentForRepositories/blob/746b8d0f552ba024f648228adae4aaca702c7614/CleanSwiftArc.png" width="800">
+<img src="https://github.com/PollyVern/ContentForRepositories/blob/746b8d0f552ba024f648228adae4aaca702c7614/CleanSwiftArc.png">
 </p>
 
 
@@ -17,7 +17,7 @@
 
 ## Превью приложения
 <p align="center">
-<img src="https://github.com/PollyVern/PVCleanSwiftExample/blob/e098d99c369636beddcd5edfba10615ddb093872/%D0%94%D0%BB%D1%8F%20Readme%20PVCleanSwiftExample.png" width="800">
+<img src="https://github.com/PollyVern/ContentForRepositories/blob/e7840d2b9c33eec0befb6542e559c0ee6fcd3aea/PreviewCleanSwiftExample.png" height="500">
 </p>
 
 ## Для работы с приложением нужно добавить API ключ из файла!
@@ -30,9 +30,10 @@ Cоздайте API ключ и занесите его в переменную 
 
 3. Перейдите в `Xcode` -> `Edit Scheme...` -> ...
 
-<img src="https://github.com/PollyVern/PVMovieAPI/blob/85598523c9abd0428a3ac532d7763b2e84010068/Screenshot%20-%20Edit.png" width="200">
+<img src="https://github.com/PollyVern/ContentForRepositories/blob/d3f3e2ef4094aa422b7e218413182c4ab798e91f/Environment%20variable%20-%20Edit.png" height="200">
 
 ... -> `Run` -> `Arguments` -> `Environment Variables`
-<img src="https://github.com/PollyVern/PVMovieAPI/blob/0608e64b368235487b33062ff18dedd933d4aa39/Screenshot%20-%20Propertys.png" width="700">
+
+<img src="https://github.com/PollyVern/ContentForRepositories/blob/d3f3e2ef4094aa422b7e218413182c4ab798e91f/Environment%20variable%20-%20Propertys.png" height="300">
 
 И создайте новую переменную окружения с именем **"APIkey"**(!!!). В значение вставьте ключ API.
