@@ -16,3 +16,16 @@ public struct MovieDetailsListResponse: Codable {
     let voteAverage: Double?
 }
 
+extension MovieDetailsListResponse {
+
+    func responseWithConvertedGenres() -> MovieDetailsListResponse {
+        return MovieDetailsListResponse(title: self.title,
+                                        runtime: self.runtime,
+                                        backdropPath: self.backdropPath,
+                                        genres: LoadGenresWorker().loadGenres(genres: self.genres),
+                                        overview: self.overview,
+                                        voteAverage: self.voteAverage)
+    }
+    
+}
+

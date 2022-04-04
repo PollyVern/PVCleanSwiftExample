@@ -14,8 +14,8 @@ struct LoadGenresWorker {
         
         guard genres != nil else { return genresResult }
         
-        for i in 0...genres!.count-1 {
-            genresResult.append(MovieGenresListResponse(name: genres![i].name))
+        for genre in genres! {
+            genresResult.append(MovieGenresListResponse(name: genre.name))
         }
         return genresResult
     }

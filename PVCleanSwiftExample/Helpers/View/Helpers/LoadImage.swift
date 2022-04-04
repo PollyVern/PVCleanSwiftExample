@@ -14,10 +14,11 @@ final class LoadImages {
         baseUrl = URL(string: APIconstants.baseImageW500URL + partOfURL)
         URLSession.shared.dataTask(with: baseUrl!) { (data, response, error) in
             guard let data = data, error == nil else { return }
+
             DispatchQueue.main.async() {
                 completion((UIImage(data: data) ?? UIImage(systemName: "film.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))?.withRenderingMode(.alwaysOriginal).withTintColor(.gray))!)
             }
         }.resume()
     }
-
+ 
 }

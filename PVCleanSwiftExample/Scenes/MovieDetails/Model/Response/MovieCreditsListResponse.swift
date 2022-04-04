@@ -20,3 +20,10 @@ public struct Crew: Codable {
     let originalName: String?
 }
 
+extension MovieCreditsListResponse {
+    func responseCastAndCrew() -> MovieCreditsListResponse {
+        MovieCreditsListResponse(cast: self.cast,
+                                 crew: self.crew)
+    }
+}
+

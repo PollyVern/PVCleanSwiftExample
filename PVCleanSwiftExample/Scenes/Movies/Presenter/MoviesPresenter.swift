@@ -26,13 +26,13 @@ extension MoviesPresenter: MoviesPresentationLogic {
             let cellModel = MoviesCoverCollectionViewCellModel(id: model.id,
                                                                name: model.title ?? "Неизвестно",
                                                                posterPath: model.posterPath ?? "",
-                                                               genres: presentGenresString(model: model),
+                                                               genres: self.presentGenresString(model: model),
                                                                date: Formatters().dateFormatter(dateString: model.releaseDate ?? ""),
                                                                runtime: Formatters().minutesToHoursFormatter(dataMinutes: model.runtime ?? 0),
                                                                voteAverage: "\(model.voteAverage ?? 0.0)" )
             return cellModel
         }
-        viewController?.display(data: viewModel)
+        self.viewController?.display(data: viewModel)
     }
 }
 
@@ -44,9 +44,11 @@ extension MoviesPresenter {
         if model.genres?.count == 0 {
             return ""
         } else {
-            for i in 0...model.genres!.count-1 {
-                genresArray.append(model.genres![i].name!)
+            
+            for genre in model.genres! {
+                genresArray.append(genre.name!)
             }
+            
             let genresString = (genresArray.map{$0}).map{String($0)}.joined(separator: ", ")
             return genresString
         }

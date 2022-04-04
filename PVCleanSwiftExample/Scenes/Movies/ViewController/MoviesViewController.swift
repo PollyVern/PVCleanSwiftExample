@@ -113,15 +113,15 @@ class MoviesViewController: UIViewController {
 // MARK: - MoviesDisplayLogic
 extension MoviesViewController: MoviesDisplayLogic {
     func display(data: [MoviesCoverCollectionViewCellModel]) {
-        displayMoviesIDs.removeAll()
-        displayMoviesIDs.append(contentsOf: data)
-        collectionView.reloadData()
+        self.displayMoviesIDs.removeAll()
+        self.displayMoviesIDs.append(contentsOf: data)
+        self.collectionView.reloadData()
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension MoviesViewController: UICollectionViewDelegate {
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         router?.navigateToDetails(movieID: displayMoviesIDs[indexPath.row].id)
     }
@@ -136,8 +136,9 @@ extension MoviesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCoverCollectionViewCell", for: indexPath) as! MoviesCoverCollectionViewCell
         cell.setup(data: displayMoviesIDs[indexPath.row])
-        
+        print(displayMoviesIDs.count)
+
         return cell
     }
-
+    
 }

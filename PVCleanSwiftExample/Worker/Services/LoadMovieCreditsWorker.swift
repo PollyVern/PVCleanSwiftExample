@@ -24,8 +24,7 @@ struct LoadMovieCreditsWorker {
             }
             do {
                 let movieCreditsResult = try decoder.decode(MovieCreditsListResponse.self, from: data)
-                backendResponse.append(MovieCreditsListResponse(cast: movieCreditsResult.cast,
-                                                                crew: movieCreditsResult.crew))
+                backendResponse.append(movieCreditsResult.responseCastAndCrew())
                 DispatchQueue.main.async {
                     completion(backendResponse)
                 }

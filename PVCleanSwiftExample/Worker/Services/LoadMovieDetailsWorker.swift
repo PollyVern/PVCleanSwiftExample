@@ -8,8 +8,6 @@
 import Foundation
 
 struct LoadMovieDetailsWorker {
-
-    private let loadGenresWorker = LoadGenresWorker()
     
     public func loadMovieDetails(movieID: Int, completion: @escaping (([MovieDetailsListResponse]) -> Void)) {
         var baseUrl: URL?
@@ -25,12 +23,7 @@ struct LoadMovieDetailsWorker {
             }
             do {
                 let moviesDescriptionResult = try decoder.decode(MovieDetailsListResponse.self, from: data)
-                backendResponse.append(MovieDetailsListResponse(title: moviesDescriptionResult.title,
-                                                                runtime: moviesDescriptionResult.runtime,
-                                                                backdropPath: moviesDescriptionResult.backdropPath,
-                                                                genres: loadGenresWorker.loadGenres(genres: moviesDescriptionResult.genres),
-                                                                overview: moviesDescriptionResult.overview,
-                                                                voteAverage: moviesDescriptionResult.voteAverage))
+                backendResponse.append(moviesDescriptionResult.responseWithConvertedGenres())
                 DispatchQueue.main.async {
                     completion(backendResponse)
                 }

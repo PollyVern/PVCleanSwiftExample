@@ -60,8 +60,8 @@ extension MovieDetailsPresenter {
         if model.genres?.count == 0 {
             return ""
         } else {
-            for i in 0...model.genres!.count-1 {
-                genresArray.append(model.genres![i].name!)
+            for genre in model.genres! {
+                genresArray.append(genre.name!)
             }
             let genresString = (genresArray.map{$0}).map{String($0)}.joined(separator: ", ")
             return genresString

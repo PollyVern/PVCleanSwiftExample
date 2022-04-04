@@ -110,13 +110,13 @@ class MoviesCoverCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Setup
-    public func setup(data: MoviesCoverCollectionViewCellModel) {        
+    public func setup(data: MoviesCoverCollectionViewCellModel) {
         nameLabel.text = data.name
         genresLabel.text = data.genres
         dateLabel.text = data.date
         durationLabel.text = data.runtime
         voteAverageLabel.attributedText = LabelAttributed().dynamicStarImageOnLabelAttributed(font: subTitleFont, text: data.voteAverage!)
-        
+
         LoadImages().loadImageW500(partOfURL: data.posterPath!) { poster in
             self.coverImageView.image = poster
         }
